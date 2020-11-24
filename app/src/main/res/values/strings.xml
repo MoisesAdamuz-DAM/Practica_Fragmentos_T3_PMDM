@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">My Avatar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnDialogo">Crear Avatar</string>
+    <string name="btnAceptar">Aceptar</string>
+    <string name="btnCancelar">Cancelar</string>
+
+    <string name="titulo1">Nombre de Avatar</string>
+    <string name="titulo2">Sexo </string>
+    <string name="titulo3">Especie</string>
+    <string name="titulo4">Profesión</string>
+
+    <string name="txtVida">Vida:</string>
+    <string name="txtMagia">Magia:</string>
+    <string name="txtFuerza">Fuerza: </string>
+    <string name="txtVelocidad">Velocidad:</string>
+
+
+    <string name="nombre">Nombre de Avatar</string>
+
+    <string name="radioHombre">Hombre</string>
+    <string name="radioMujer">Mujer</string>
+    <string name="radioEnano">Enano</string>
+    <string name="radioElfo">Elfo</string>
+    <string name="radioHobbit">Hobbit</string>
+    <string name="radioMan">Hombre</string>
+    <string name="radioHobby">Hobbit</string>
+    <string name="radioArquero">Arquero</string>
+    <string name="radioGuerrero">Guerrero</string>
+    <string name="radioMago">Mago</string>
+    <string name="radioHerrero">Herrero</string>
+    <string name="radioMinero">Minero</string>
+
+
+
+    <string name="nameAvatar">Nombre:</string>
+    <string name="sexAvatar">Sexo:</string>
+
+
+</resources>
