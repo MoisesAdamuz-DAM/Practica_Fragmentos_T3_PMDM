@@ -51,7 +51,7 @@ public class Dialogo2 extends DialogFragment {
                                 Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
-                        else
+                        else if(rM.isChecked())
                         {
                             try {
                                 gender = "Mujer";
@@ -62,12 +62,13 @@ public class Dialogo2 extends DialogFragment {
                                 Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
+                         else {
+
+                            mListener.onDialogoSeleccion();
+
+                        }
 
                     }
-
-
-
-
                 })
                 .setNegativeButton(R.string.btnCancelar, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

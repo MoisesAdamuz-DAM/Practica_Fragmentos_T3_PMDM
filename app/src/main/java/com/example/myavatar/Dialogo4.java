@@ -13,9 +13,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.myavatar.Aceptar1;
-import com.example.myavatar.R;
-
 public class Dialogo4 extends DialogFragment {
     Aceptar1 mListener;
     RadioButton rArq;
@@ -23,7 +20,7 @@ public class Dialogo4 extends DialogFragment {
     RadioButton rMag;
     RadioButton rHer;
     RadioButton rMin;
-    String raza = " ";
+    String profesion = " ";
 
 
     @Override
@@ -46,18 +43,47 @@ public class Dialogo4 extends DialogFragment {
                 .setTitle(R.string.titulo4)
                 .setPositiveButton(R.string.btnAceptar, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
                         try {
-                            //Llamamos al método onDataSet de la interfaz Aceptar1 = mListener
+                            if (rArq.isChecked()) {
 
-                            //Abrimos el fragmento
+                                //Llamamos al método onDataSet de la interfaz Aceptar1 = mListener
+                                profesion = "Arquero";
+                                mListener.onDataSet4(profesion);
+                                mListener.randomVida();
+                            }
+                            else if (rGue.isChecked()) {
 
+                                //Llamamos al método onDataSet de la interfaz Aceptar1 = mListener
+                                profesion = "Guerrero";
+                                mListener.onDataSet4(profesion);
+                                mListener.randomVida();
+
+                            } else if (rMag.isChecked()) {
+
+                                //Llamamos al método onDataSet de la interfaz Aceptar1 = mListener
+                                profesion = "Mago";
+                                mListener.onDataSet4(profesion);
+                                mListener.randomVida();
+
+                            } else if (rHer.isChecked()) {
+                                profesion = "Herrero";
+                                mListener.onDataSet4(profesion);
+                                mListener.randomVida();
+                            }
+                            else if (rMin.isChecked()) {
+                                profesion = "Minero";
+                                mListener.onDataSet4(profesion);
+                                mListener.randomVida();
+
+                            }
+                            else {
+                                mListener.onDialogoSeleccion();
+                            }
                         }
-                        catch (Exception e) {
+                        catch(Exception e)
+                        {
                             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-
-
                     }
                 })
                 .setNegativeButton(R.string.btnCancelar, new DialogInterface.OnClickListener() {

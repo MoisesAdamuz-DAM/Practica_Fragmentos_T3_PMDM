@@ -25,12 +25,12 @@ EditText txtGen;
 ImageView imgEsp;
 ImageView imgPro;
 
+EditText txtVida;
+EditText txtFuerza;
+EditText txtMagia;
+EditText txtVelocidad;
+
 TextView txtP;
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,20 +43,22 @@ TextView txtP;
         txtName = findViewById(R.id.textNombre);
         txtGen = findViewById(R.id.txtSex);
 
+        txtVida = findViewById(R.id.textVida);
+        txtFuerza = findViewById(R.id.textFuerza);
+        txtMagia = findViewById(R.id.textMagia);
+        txtVelocidad = findViewById(R.id.textVelocidad);
+
         txtP = findViewById(R.id.textNombre);
 
-
+        //Hacemos visible los imageView
         imgEsp = findViewById(R.id.imgEspecie);
         imgEsp.setImageResource(R.drawable.ic_usuario);
         imgPro = findViewById(R.id.imgProfesion);
         imgPro.setImageResource(R.drawable.ic_informacion);
-
-
     }
 
     @Override
     public void onClick(View v) {
-
         if(v.getId() == (R.id.btnCrear))
         {
             //Abrir Dialog1
@@ -64,7 +66,6 @@ TextView txtP;
             dialogo.setCancelable(false);
             dialogo.show(getSupportFragmentManager(), "Nuevo Diálogo");
         }
-
     }
 
     @Override
@@ -86,23 +87,20 @@ TextView txtP;
     //Insertar nombre
     @Override
     public void onDataSet(String nombre) {
-
-        Toast.makeText(this, "Nombre "+ nombre, Toast.LENGTH_SHORT).show();
+        //Insertamos la cadena obtenida en el diálogo 1
         txtP.setText(nombre);
-
-
     }
-
     @Override
     public void onDataSet2(String sexo)
     {
+        //Insertamos la cadena obtenida en el diálogo 2
         txtGen.setText(sexo);
     }
     public void onDataSet3(String raza) {
+        //Obtenemos la cadena generado en el texto de género
+        //En el caso de que el texto obtenido sea igual a Hombre pasará lo siguiente
         if (txtGen.getText().toString().equals("Hombre"))
-
         {
-            Toast.makeText(this, raza, Toast.LENGTH_SHORT).show();
             if (raza.equals("Enano")) {
                 imgEsp.setImageResource(R.drawable.ic_gnomo);
             }
@@ -110,7 +108,10 @@ TextView txtP;
                 imgEsp.setImageResource(R.drawable.ic_elfo);
             }
             else if (raza.equals("Hobbit")) {
-                imgEsp.setImageResource(R.drawable.hobbit);
+                imgEsp.setImageResource(R.drawable.ic_hobbit);
+            }
+            else if (raza.equals("Hombre")) {
+                imgEsp.setImageResource(R.drawable.ic_guerrero);
             }
         }
         else
@@ -118,11 +119,35 @@ TextView txtP;
             if (raza.equals("Elfo")) {
                 imgEsp.setImageResource(R.drawable.ic_elfa);
             }
+            else if (raza.equals("Enano")) {
+                imgEsp.setImageResource(R.drawable.ic_opera);
+            }
+            else if (raza.equals("Hobbit")) {
+                imgEsp.setImageResource(R.drawable.ic_mujer);
+            }
+            else if (raza.equals("Hombre")) {
+                imgEsp.setImageResource(R.drawable.ic_mujer2);
+            }
         }
     }
-
-
-
+    public void onDataSet4(String profesion)
+    {
+        if (profesion.equals("Arquero")) {
+            imgPro.setImageResource(R.drawable.ic_arquero__2_);
+        }
+        else if (profesion.equals("Guerrero")) {
+            imgPro.setImageResource(R.drawable.ic_batalla);
+        }
+        else if (profesion.equals("Mago")) {
+            imgPro.setImageResource(R.drawable.ic_mago);
+        }
+        else if (profesion.equals("Minero")) {
+            imgPro.setImageResource(R.drawable.ic_minero);
+        }
+        else if (profesion.equals("Herrero")) {
+            imgPro.setImageResource(R.drawable.ic_herrero);
+        }
+    }
     //Abrir Dialog2
     public void abrirSecondDialog()
     {
@@ -145,11 +170,17 @@ TextView txtP;
         dialogo4.show(getSupportFragmentManager(), "Cuarto Diálogo");
     }
 
-    public void selectionBoton(String gen)
+    public void randomVida()
     {
-      txtGen.setText(gen);
+        int vi = (int) (Math.random()*100);
+        txtVida.setText(String.valueOf(vi));
+        int ma = (int) (Math.random()*10);
+        txtMagia.setText(String.valueOf(ma));
+        int fu = (int) (Math.random()*20);
+        txtFuerza.setText(String.valueOf(fu));
+        int ve = (int) (Math.random()*5);
+        txtVelocidad.setText(String.valueOf(ve));
 
     }
-
 
 }
