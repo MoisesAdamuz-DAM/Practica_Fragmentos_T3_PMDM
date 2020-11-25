@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,Aceptar1 {
+    private MediaPlayer reproductor;
 Button button;
 Dialogo dialogo;
 Dialogo2 dialogo2;
@@ -36,17 +38,31 @@ TextView txtP;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Reproducto Música
+        reproductor = MediaPlayer.create(this, R.raw.musicadjjimmysinghwebeclubbin);
+        reproductor = MediaPlayer.create(this, R.raw.musicatheridersbringmethelite);
+        //Me repite la música constantemente
+        //reproductor.setLooping(true);
+        reproductor.start();
+
         button = findViewById(R.id.btnCrear);
         button.setOnClickListener(this);
 
         txt1 = findViewById(R.id.textDialog);
         txtName = findViewById(R.id.textNombre);
+        //Evitamos que se pueda escribir en el textNombre
+        txtName.setEnabled(false);
         txtGen = findViewById(R.id.txtSex);
+        txtGen.setEnabled(false);
 
         txtVida = findViewById(R.id.textVida);
+        txtVida.setEnabled(false);
         txtFuerza = findViewById(R.id.textFuerza);
+        txtFuerza.setEnabled(false);
         txtMagia = findViewById(R.id.textMagia);
+        txtMagia.setEnabled(false);
         txtVelocidad = findViewById(R.id.textVelocidad);
+        txtVelocidad.setEnabled(false);
 
         txtP = findViewById(R.id.textNombre);
 
@@ -173,13 +189,13 @@ TextView txtP;
     public void randomVida()
     {
         int vi = (int) (Math.random()*100);
-        txtVida.setText(String.valueOf(vi));
+        txtVida.setText(String.valueOf(vi)+"/100");
         int ma = (int) (Math.random()*10);
-        txtMagia.setText(String.valueOf(ma));
+        txtMagia.setText(String.valueOf(ma)+"/10");
         int fu = (int) (Math.random()*20);
-        txtFuerza.setText(String.valueOf(fu));
+        txtFuerza.setText(String.valueOf(fu)+"/20");
         int ve = (int) (Math.random()*5);
-        txtVelocidad.setText(String.valueOf(ve));
+        txtVelocidad.setText(String.valueOf(ve)+"/5");
 
     }
 
